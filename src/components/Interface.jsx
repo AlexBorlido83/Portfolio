@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { currentProjectAtom, projects } from "./Projects";
+import { AnimationLogo } from "./LottieAnimations";
+import linkedinLogo from "../assets/linkedin.json";
+import githubLogo from "../assets/github.json";
+
 const Section = (props) => {
   const { children, mobileTop } = props;
 
@@ -27,20 +31,20 @@ const Section = (props) => {
   );
 };
 
-export const Interface = () => {
+export const Interface = (props) => {
+  const { section } = props;
   return (
     <div className="flex flex-col items-center w-screen">
-      <AboutSection />
+      <AboutSection section={section} />
       <SkillsSection />
       <ProjectSection />
-      {/*  <Section>
-        <h1>Contact</h1>
-      </Section> */}
     </div>
   );
 };
 
-const AboutSection = () => {
+const AboutSection = (props) => {
+  const { section } = props;
+
   return (
     <Section mobileTop>
       <h1 className="text-4xl md:text-6xl font-extrabold leading-snug mt-8 md:mt-0">
@@ -67,8 +71,8 @@ const AboutSection = () => {
         <br />
         Welcome to my page!
       </motion.p>
-      <motion.button
-        className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-4 md:mt-16"
+      <motion.div
+        className="flex mt-26"
         initial={{
           opacity: 0,
           y: 25,
@@ -78,12 +82,17 @@ const AboutSection = () => {
           y: 0,
           transition: {
             duration: 1,
-            delay: 2.5,
+            delay: 2,
           },
         }}
       >
-        Contact me
-      </motion.button>
+        <div className="w-32 h-32">
+          <AnimationLogo animationLogo={linkedinLogo} section={section} />
+        </div>
+        <div className="w-32 h-32">
+          <AnimationLogo animationLogo={githubLogo} section={section} />
+        </div>
+      </motion.div>
     </Section>
   );
 };

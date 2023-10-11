@@ -42,7 +42,7 @@ function App() {
                 )}
               </Suspense>
             </Scroll>
-            <Scroll html>{started && <Interface />}</Scroll>
+            <Scroll html>{started && <Interface section={section} />}</Scroll>
           </ScrollControls>
         </Canvas>
         <Menu

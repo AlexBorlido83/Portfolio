@@ -10,3 +10,8 @@
 body {
   margin: 0;
 }
+
+
+.bg-custom-gray {
+  background-color: #ececec;
+}
