@@ -1,12 +1,13 @@
-import { Environment, Sky } from "@react-three/drei";
+import { Environment, Sky, useScroll } from "@react-three/drei";
 import { Avatar } from "./Avatar";
 import { Office } from "./Office";
+// import { Officev2 } from "./Officev2";
+
 import { motion } from "framer-motion-3d";
 import { useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 import { frameMotionConfig } from "../config";
-import { useScroll } from "@react-three/drei";
 import { Projects } from "./Projects";
 
 export const Experience = (props) => {
@@ -52,8 +53,8 @@ export const Experience = (props) => {
       <Sky />
       <Environment preset="sunset" />
       <motion.group
-        position={[2.3, 0, 2.22]}
-        rotation={[-3.141592653589793, 1.047197551196598, -3.141592653589793]}
+        position={[2.2, 0.1, 2.5]}
+        rotation={[-3.141592653589793, 1.447197551196598, -3.141592653589793]}
         scale={1.2}
         animate={"" + section}
         variants={{
@@ -85,8 +86,8 @@ export const Experience = (props) => {
         <Avatar animation={characterAnimation} />
       </motion.group>
       <motion.group
-        position={[1.5, 2, 3]}
-        scale={[0.5, 0.5, 0.5]}
+        position={[1.9, 2, 3]}
+        scale={[1, 1, 1]}
         rotation-y={-Math.PI / 4}
         animate={{
           y: section === 0 ? 0 : -1,
@@ -96,6 +97,7 @@ export const Experience = (props) => {
         }}
       >
         <Office section={section} />
+        {/* <Officev2 section={section} /> */}
       </motion.group>
       <Projects />
     </>
